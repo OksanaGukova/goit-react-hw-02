@@ -1,4 +1,5 @@
-import css from './Feedback.modyle.css'
+import css from './Feedback.module.css'
+
 
 export default function Feedback({ feedback }) {
     return (

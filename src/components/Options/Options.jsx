@@ -1,9 +1,19 @@
-export default function Options({ onLeaveFeedback }) {
-   return (
-     <div>
-       <button onClick={() => onLeaveFeedback("good")}>Good</button>
-       <button onClick={() => onLeaveFeedback("neutral")}>Neutral</button>
-       <button onClick={() => onLeaveFeedback("bad")}>Bad</button>
-     </div>
-   );
+import css from './Optional.module.css'
+import PropTypes from "prop-types";
+
+
+
+export default function Options({ updateFeedback, resetFeedback, totalFeedback }) {
+  return (
+    <div className={css.container}>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
+      {totalFeedback > 0 && <button onClick={resetFeedback}>Reset</button>}
+    </div>
+  );
 }
+
+Options.propTypes = {
+  updateFeedback: PropTypes.func.isRequired,
+};
