@@ -1,9 +1,11 @@
 import css from './Optional.module.css'
 import PropTypes from "prop-types";
 
-
-
-export default function Options({ updateFeedback, resetFeedback, totalFeedback }) {
+export default function Options({
+  updateFeedback,
+  resetFeedback,
+  totalFeedback,
+}) {
   return (
     <div className={css.container}>
       <button onClick={() => updateFeedback("good")}>Good</button>

@@ -5,7 +5,7 @@ import css from './App.module.css'
 import Notification from "../Notification/Notification";
 
 
- function App() {
+function App() {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
 
   const updateFeedback = (type) => {
@@ -13,19 +13,19 @@ import Notification from "../Notification/Notification";
       ...prevFeedback,
       [type]: prevFeedback[type] + 1,
     }));
-   };
+  };
 
-    const resetFeedback = () => {
-      setFeedback({
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      });
-    };
-   
-    const { good, neutral, bad } = feedback;
-    const totalFeedback = good + neutral + bad;
+  const resetFeedback = () => {
+    setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
 
+  const { good, neutral, bad } = feedback;
+  const totalFeedback = good + neutral + bad;
+    const positiveFeedback = Math.round((good / totalFeedback) * 100); 
   return (
     <div>
       <h1 className={css.header}>Sip Happens Café</h1>
@@ -37,9 +37,10 @@ import Notification from "../Notification/Notification";
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
         totalFeedback={totalFeedback}
+        positiveFeedback={positiveFeedback}
       />
       {totalFeedback > 0 ? (
-        <Feedback feedback={feedback} />
+        <Feedback feedback={feedback} positiveFeedback={positiveFeedback} />
       ) : (
         <Notification message="No feedback yet" />
       )}
