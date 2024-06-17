@@ -1,3 +1,3 @@
-export default function Notification({ message }) {
-     return <p>{message}</p>;
+export default function Notification() {
+     return <p>No feedback yet</p>;
 }

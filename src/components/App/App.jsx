@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import  Feedback  from '../Feedback/Feedback'
 import Options from '../Options/Options'
-import css from './App.module.css'
+import Descriptions from "../Descriptions/Descriptions";
 import Notification from "../Notification/Notification";
 
 
 function App() {
+
  const [feedback, setFeedback] = useState(() => {
    const savedFeedback = localStorage.getItem("feedback");
    return savedFeedback
@@ -34,14 +35,11 @@ function App() {
 
   const { good, neutral, bad } = feedback;
   const totalFeedback = good + neutral + bad;
-    const positiveFeedback = Math.round((good / totalFeedback) * 100); 
+  const positiveFeedback = Math.round((good / totalFeedback) * 100); 
+  
   return (
-    <div>
-      <h1 className={css.header}>Sip Happens Café</h1>
-      <p className={css.text}>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+    <>
+      <Descriptions />
       <Options
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
@@ -51,12 +49,10 @@ function App() {
       {totalFeedback > 0 ? (
         <Feedback feedback={feedback} positiveFeedback={positiveFeedback} />
       ) : (
-        <Notification message="No feedback yet" />
+        <Notification />
       )}
-    </div>
+    </>
   );
 }
-
-
 
 export default App
