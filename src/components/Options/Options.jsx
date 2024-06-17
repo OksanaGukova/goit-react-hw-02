@@ -1,5 +1,4 @@
-import css from './Optional.module.css'
-import PropTypes from "prop-types";
+import css from './Options.module.css'
 
 export default function Options({
   updateFeedback,
@@ -16,6 +15,3 @@ export default function Options({
   );
 }
 
-Options.propTypes = {
-  updateFeedback: PropTypes.func.isRequired,
-};
