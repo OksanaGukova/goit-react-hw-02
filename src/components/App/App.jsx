@@ -35,8 +35,7 @@ function App() {
 
   const { good, neutral, bad } = feedback;
   const totalFeedback = good + neutral + bad;
-    const positiveFeedback =
-      totalFeedback > 0 ? Math.round((good / totalFeedback) * 100) : 0;
+    const positiveFeedback = Math.round((good / totalFeedback) * 100);
   
   return (
     <>
