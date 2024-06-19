@@ -44,10 +44,10 @@ function App() {
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
         totalFeedback={totalFeedback}
-        positiveFeedback={positiveFeedback}
       />
       {totalFeedback > 0 ? (
-        <Feedback feedback={feedback} positiveFeedback={positiveFeedback} />
+        <Feedback feedback={feedback}
+          positiveFeedback={positiveFeedback} />
       ) : (
         <Notification />
       )}
